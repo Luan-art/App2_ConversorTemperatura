@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ConversorTemperatura</string>
-    <string name="ButtonC">Converter para Celsius</string>
-    <string name="ButtonF">Converter para Fahrenheit</string>
-    <string name="VConvert">Valor Convertido</string>
+
+
 </resources>

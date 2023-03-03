@@ -13,9 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText valueEditText;
     private Button converterParaCelsius;
-    private  Button converterParaF;
     private TextView convertedValueTextView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,27 +23,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         valueEditText = findViewById(R.id.edittext_value);
         convertedValueTextView = findViewById(R.id.text_view_converted);
         converterParaCelsius = findViewById(R.id.button_convert_celsius);
-        converterParaF = findViewById(R.id.button_convert_fahrenheit);
         converterParaCelsius.setOnClickListener(this);
-        converterParaF.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
-        double value = getValue();
-        double temp;
-
         if(view == converterParaCelsius){
+            double value = getValue();
+            double temp = 0;
 
             temp = FahrenheitStrategy.getInstance().getConversion(value);
             convertedValueTextView.setText(String.format("%.2f Graus Celsiu", temp));
-        }
-
-        if(view == converterParaF){
-
-            temp = CelsiusStrategy.getInstance().getConversion(value);
-            convertedValueTextView.setText(String.format("%.2f Graus Fahrenheit", temp));
         }
     }
 
