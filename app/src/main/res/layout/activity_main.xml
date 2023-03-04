@@ -17,10 +17,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+
+        >
+
 
         <Button
             android:id="@+id/button_convert_celsius"
@@ -56,12 +59,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/VConvert"
-        android:textAlignment="center"
-        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/text_view_converted"
