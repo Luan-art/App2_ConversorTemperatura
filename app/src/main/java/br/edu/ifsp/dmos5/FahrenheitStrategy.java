@@ -15,10 +15,17 @@ public class FahrenheitStrategy implements ConversorTemperatura{
     }
 
     @Override
-    public double getConversion(double temperature) {
+    public double getConversion(double temperature, int value) {
 
-        temperature = (temperature - 32)/1.8;
+        // para transformar em celsius
+        // fahrenheit para celsius
+        if(value == 1){
+            temperature = (temperature - 32)/1.8;
+        //kelvin para celsius
+        } else if (value == 2) {
+            temperature = (temperature - 273);
+        }
 
-       return temperature;
+        return temperature;
     }
 }

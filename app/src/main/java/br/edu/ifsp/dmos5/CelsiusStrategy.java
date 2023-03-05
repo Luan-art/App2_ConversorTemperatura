@@ -15,10 +15,13 @@ public class CelsiusStrategy implements ConversorTemperatura{
     }
 
     @Override
-    public double getConversion(double temperature) {
+    public double getConversion(double temperature, int value) {
 
-        temperature = 1.8 * temperature + 32;
-
+        if(value == 0) {
+            temperature = 1.8 * temperature + 32;
+        }else if (value == 2){
+            temperature = (temperature-273)*1.8+32;
+        }
         return temperature;
     }
 }
