@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,12 +15,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText valueEditText;
-    private Button converterParaCelsius;
-    private  Button converterParaF;
-    private Button converterParaKelvin;
+
+    private Button converter;
     private TextView convertedValueTextView;
 
     private Spinner menu;
+
+    private RadioGroup opcoesConversao;
 
 
 
@@ -30,13 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         valueEditText = findViewById(R.id.edittext_value);
         convertedValueTextView = findViewById(R.id.text_view_converted);
-        converterParaCelsius = findViewById(R.id.button_convert_celsius);
-        converterParaF = findViewById(R.id.button_convert_fahrenheit);
-        converterParaKelvin = findViewById(R.id.button_convert_kelvin);
+        converter = findViewById(R.id.button_convert_kelvin);
         menu = findViewById(R.id.temperature_spinner);
-        converterParaCelsius.setOnClickListener(this);
-        converterParaF.setOnClickListener(this);
-        converterParaKelvin.setOnClickListener(this);
+        opcoesConversao = findViewById(R.id.convert_options);
+        converter.setOnClickListener(this);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.temperatura_array, android.R.layout.simple_spinner_item);
@@ -51,27 +50,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         double value = getValue();
         double temp;
-        int escolha;
+        int escolhaTempOri;
+        int opConversao;
 
-        escolha = menu.getSelectedItemPosition();
+        escolhaTempOri = menu.getSelectedItemPosition();
+        opConversao = opcoesConversao.getCheckedRadioButtonId();
 
-        if(view == converterParaCelsius){
-
-            temp = FahrenheitStrategy.getInstance().getConversion(value, escolha);
-            convertedValueTextView.setText(String.format("%.2f Graus Celsiu", temp));
+        switch (opConversao){
+            case R.id.convert_para_celsius:
+                temp = FahrenheitStrategy.getInstance().getConversion(value, escolhaTempOri);
+                convertedValueTextView.setText(String.format("%.2f °C", temp));
+            break;
+            case R.id.convert_para_Fahrenheit:
+                temp = CelsiusStrategy.getInstance().getConversion(value, escolhaTempOri);
+                convertedValueTextView.setText(String.format("%.2f °F", temp));
+            break;
+            case R.id.convert_para_Kelvin:
+                temp = KelvinStrategy.getInstance().getConversion(value, escolhaTempOri);
+                convertedValueTextView.setText(String.format("%.2f °K", temp));
+             break;
         }
 
-        if(view == converterParaF){
-
-            temp = CelsiusStrategy.getInstance().getConversion(value, escolha);
-            convertedValueTextView.setText(String.format("%.2f Graus Fahrenheit", temp));
-        }
-
-        if(view == converterParaKelvin){
-
-            temp = KelvinStrategy.getInstance().getConversion(value, escolha);
-            convertedValueTextView.setText(String.format("%.2f Graus Kelvin", temp));
-        }
     }
 
     private double getValue(){

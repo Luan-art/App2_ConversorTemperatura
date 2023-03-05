@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">ConversorTemperatura</string>
-    <string name="ButtonC">Converter para Celsius</string>
-    <string name="ButtonF">Converter para Fahrenheit</string>
-    <string name="ButtonK">Converter para Kelvin</string>
+    <string name="ButtonK">Converter</string>
     <string name="VConvert">Valor Convertido</string>
+    <string name="RBcelsius">Celsius</string>
+    <string name="RBFahrenheit">Fahrenheit</string>
+    <string name="RBKelvin">Kelvin</string>
+    <string name="AvisoText">Converter Para:</string>
+
 
     <string-array name="temperatura_array">
         <item>°C</item>

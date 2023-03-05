@@ -21,6 +21,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/temperature_spinner"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:textColor="#061983"
+        android:text="@string/AvisoText"
+        android:textSize="20dp"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,36 +39,34 @@
         android:orientation="horizontal"
         >
 
-
-        <Button
-            android:id="@+id/button_convert_celsius"
+        <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FF1100"
-            android:text="@string/ButtonC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:id="@+id/convert_options"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_convert_fahrenheit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FF1100"
-            android:text="@string/ButtonF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/convert_para_celsius"
+                android:text="@string/RBcelsius"
+                />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/convert_para_Fahrenheit"
+                android:text="@string/RBFahrenheit"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/convert_para_Kelvin"
+                android:text="@string/RBKelvin"/>
+
+
+        </RadioGroup>
+
 
     </LinearLayout>
 
@@ -80,7 +88,7 @@
         android:id="@+id/text_view_converted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:textColor="#DCC820"
         android:textSize="50dp"
